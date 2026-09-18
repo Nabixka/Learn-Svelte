@@ -1,5 +1,6 @@
 <script>
     let password = $state('')
+    let isNum = $state(true)
 
     function generatePassword(){
         password = ''
@@ -17,6 +18,8 @@
     <h1>Generate Password</h1>
     <button onclick={generatePassword} id="btn">Click</button>
 </div>
+
+<input type="checkbox" bind:checked={isNum}>
 
 <h3>{password}</h3>
 
