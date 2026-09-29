@@ -2,21 +2,24 @@
     let name = $state("Fathin")
     let umur = $state()
 
+    let data = $state.raw({
+        name: "Fadhil",
+        umur: 1
+    })
+
+    data = {
+        name: "Fad",
+        umur: 78
+    }
+
     class Hitung {
         count = $state(0)
 
+        tambah = () => { this.count++ }
 
-        tambah = () => {
-            this.count++
-        }
+        kurang = () => { this.count-- }
 
-        kurang = () => {
-            this.count--
-        }
-
-        reset = () => {
-            this.count = 0
-        }
+        reset = () => { this.count = 0 }
 
     }
     
@@ -27,22 +30,44 @@
 <main class="p-3 grid grid-cols-3">
 
     <!-- Contoh  Informasi Pribadi -->
-    <div class="flex gap-5">
-        
-        <div>
-            <h1>Name</h1>
-            <h1>Umur</h1>
-        </div>
-        <div>
-            <h1>:</h1>
-            <h1>:</h1>
-        </div>
-        <div>
-            <h1>{ name }</h1>
-            <div class="flex gap-5">
-                <h1>{ umur ? umur : "-" }</h1>
-                <input bind:value={umur} class="border rounded-md px-3" type="number" placeholder="Masukkan Usia">
+    <div class="flex flex-col gap-5">
+
+        <!-- Reactive -->
+        <div class="flex gap-5">
+            <div>
+                <h1>Name</h1>
+                <h1>Umur</h1>
             </div>
+            <div>
+                <h1>:</h1>
+                <h1>:</h1>
+            </div>
+            <div>
+                <h1>{ name }</h1>
+                <div class="flex gap-5">
+                    <h1>{ umur ? umur : "-" }</h1>
+                    <input bind:value={umur} class="border rounded-md px-3" type="number" placeholder="Masukkan Usia">
+                </div>
+            </div> 
+        </div>
+
+        <!-- Cannot Change -->
+        <div class="flex gap-5">
+            <div>
+                <h1>Name</h1>
+                <h1>Umur</h1>
+            </div>
+            <div>
+                <h1>:</h1>
+                <h1>:</h1>
+            </div>
+            <div>
+                <h1>{ data.name }</h1>
+                <div class="flex gap-5">
+                    <h1>{ data.umur ? data.umur : "-" }</h1>
+                    <input bind:value={data.umur} class="border rounded-md px-3" type="number" placeholder="Masukkan Usia">
+                </div>
+            </div> 
         </div>
 
     </div>
